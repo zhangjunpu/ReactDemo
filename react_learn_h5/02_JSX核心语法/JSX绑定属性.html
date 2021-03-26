@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        function getImageSize(imageUrl, size) {
+            return imageUrl + `?param=${size}x${size}`;
+        }
+
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    title: "光标提示",
+                    imageUrl: "http://p3.music.126.net/YwVldSep6DwYnT6zDdra4w==/109951165287958515.jpg",
+                    link: "https://www.baidu.com",
+                    isActive: false,
+                }
+            }
+
+            render() {
+                const { title, imageUrl, defaultUrl, link, isActive } = this.state;
+                return (
+                    <div>
+                        {/* 绑定普通属性 */}
+                        <h2 title={title}>我是标题</h2>
+                        <img src={getImageSize(imageUrl, 200)} alt="图片" />
+                        <a href={link}>百度一下</a>
+
+                        {/* 绑定class */}
+                        <div className={"title " + isActive ? "active" : ""}>class</div>
+
+                        {/* 绑定style */}
+                        <div style={{ color: "red", fontSize: 50 }}>你好吗</div>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

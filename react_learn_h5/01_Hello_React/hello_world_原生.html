@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2 class="title">message</h2>
+    <button class="btn" onclick="clickButton()">点我</button>
+
+    <script>
+        let message = "Hello World"
+        let h2 = document.getElementsByClassName("title")[0];
+        h2.innerHTML = message;
+
+        // let btn = document.getElementsByClassName("btn")[0];
+        // btn.addEventListener("click", () => {
+        //     console.log("-----");
+        //     message = "Hello React!!"
+        //     h2.innerHTML = message;
+        // });
+
+        /**
+         * 响应点击事件
+         */
+        function clickButton(params) {
+            console.log("-----");
+            message = "Hello React!!"
+            h2.innerHTML = message;
+        }
+    </script>
+</body>
+</html>

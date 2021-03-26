@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+}
+
+.nav-item {
+    text-align: center;
+}
+
+.navbar .left, .navbar .right {
+    width: 60px;
+}
+
+.navbar .center {
+    flex: 1;
+    background-color: #f00;
+}

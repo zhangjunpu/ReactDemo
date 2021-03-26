@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {
+            border: 1px solid #eee;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #eee;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        .count-space {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    books: [
+                        {
+                            id: 1,
+                            name: '《算法导论》',
+                            date: '2006-9',
+                            price: 85.00,
+                            count: 2
+                        },
+                        {
+                            id: 2,
+                            name: '《UNIX编程艺术》',
+                            date: '2006-2',
+                            price: 59.00,
+                            count: 1
+                        },
+                        {
+                            id: 3,
+                            name: '《编程珠玑》',
+                            date: '2008-10',
+                            price: 39.00,
+                            count: 1
+                        },
+                        {
+                            id: 4,
+                            name: '《代码大全》',
+                            date: '2006-3',
+                            price: 128.00,
+                            count: 1
+                        },
+                    ]
+                }
+            }
+
+            /**
+             * 渲染书籍列表
+             */
+            renderBooks() {
+                return (
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>书籍名称</th>
+                                    <th>出版日期</th>
+                                    <th>价格</th>
+                                    <th>购买数量</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.books.map((item, index) => {
+                                    return (
+                                        <tr>
+                                            <td>{item.id}</td>
+                                            <td>{item.name}</td>
+                                            <td>{item.date}</td>
+                                            <td>{this.formatPrice(item.price)}</td>
+                                            <td>
+                                                <button onClick={() => { this.changeBookCount(index, -1) }}
+                                                    disabled={item.count <= 1}>-</button>
+                                                <span className="count-space">{item.count}</span>
+                                                <button onClick={() => { this.changeBookCount(index, 1) }}>+</button>
+                                            </td>
+                                            <td><button onClick={() => { this.removeBook(index) }}>移除</button></td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                        <h3>总价格：{this.getTotalPrice()}</h3>
+                    </div>
+                );
+            }
+
+            /**
+             * 渲染空书库
+             */
+            renderEmpty() {
+                return <h2>购物车为空</h2>;
+            }
+
+            render() {
+                return this.state.books.length > 0 ? this.renderBooks() : this.renderEmpty();
+            }
+
+            /**
+             * 修改书籍数量
+             */
+            changeBookCount(index, count) {
+                const books = [...this.state.books];
+                // const books = this.state.books;
+                books[index].count += count;
+                this.setState({
+                    books
+                });
+            }
+
+            /**
+             * 移除书籍
+             */
+            removeBook(index) {
+                const books = [...this.state.books].filter((item, indey) => index != indey);
+                // const books = this.state.books
+                // books.splice(index, 1)
+                this.setState({
+                    books
+                });
+            }
+
+            /**
+             * 获取总价
+             */
+            getTotalPrice() {
+                const totalPrice = this.state.books.reduce((preValue, item, index, arr) => {
+                    return preValue + item.count * item.price;
+                }, 0);
+                return this.formatPrice(totalPrice);
+            }
+
+            /**
+             * 格式化价格
+             */
+            formatPrice(price) {
+                return `￥${price.toFixed(2)}`
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

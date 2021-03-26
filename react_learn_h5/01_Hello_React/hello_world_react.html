@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <h2 id="app">a</h2>
+
+    <script type="text/babel">
+        let message = "Hello World"
+
+        function render(params) {
+            ReactDOM.render(
+                <div>
+                    <h2>{message}</h2>
+                    <button onClick={clickMe}>Click Me</button>
+                </div>,
+                document.getElementById("app")
+            );
+        }
+
+        function clickMe(params) {
+            console.log("------", message);
+            message = "Hello React!!!!"
+            render();
+        }
+
+        render();
+
+    </script>
+
+
+</body>
+
+</html>

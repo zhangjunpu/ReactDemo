@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            running() {
+                console.log(this.name, this.age, "Running");
+            }
+        }
+
+        const p = new Person("Junpu", 18);
+        console.log(p);
+        p.running();
+
+        class Student extends Person {
+            constructor(name, age, sid) {
+                super(name, age);
+                this.sid = sid;
+            }
+        }
+
+        const student = new Student("Junpu", 18, 001);
+        console.log(student);
+        student.running();
+
+        class Teacher extends Person {
+            constructor(name, age, title) {
+                super(name, age);
+                this.title = title;
+            }
+        }
+
+        const teacher = new Teacher("HS", 27, "主任");
+        console.log(teacher);
+        teacher.running();
+    </script>
+</body>
+
+</html>

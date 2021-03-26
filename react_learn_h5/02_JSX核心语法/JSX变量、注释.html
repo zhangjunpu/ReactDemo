@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    name: "Junpu",
+                    age: 18,
+                    hobby: ["看电影", "打篮球", "看书"],
+
+                    firstName: null,
+                    lastName: undefined,
+                    flag: true
+                }
+            }
+
+            render() {
+                const { name, age, hobby, firstName, lastName, flag } = this.state;
+                return (
+                    <div>
+                        {/** 哈哈，我是一条注释 */}
+                        <h2>{name}</h2>
+                        <h2>{age}</h2>
+                        <h2>{hobby}</h2>
+                        <h2>{firstName + ""}</h2>
+                        <h2>{String(lastName)}</h2>
+                        <h2>{flag.toString()}</h2>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

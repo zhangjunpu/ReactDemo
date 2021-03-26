@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.tabbar {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    background-color: #ff0;
+}
+
+.tabbar .tab-item {
+    flex: 1;
+    text-align: center;
+}
+
+.tabbar .text {
+    padding: 3px 5px;
+}
+
+.tabbar .active {
+    color: red;
+    border-bottom: 2px solid red;
+}
