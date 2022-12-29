@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 // import App from './App'
 // import App from "./01_组件间通信/01_组件间通信_父传子";
@@ -22,4 +22,4 @@ import ReactDOM from 'react-dom';
 // import App from "./04_受控非受控组件/04_form_radio";
 import App from "./04_受控非受控组件/05_form_select";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
