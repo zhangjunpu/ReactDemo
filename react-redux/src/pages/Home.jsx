@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 
-import {
-    addNumberAction,
-    requestRecommendAction,
-} from '../store/actionCreater'
+import { addNumberAction } from '../store/counter'
+import { requestRecommendAction } from '../store/recommend'
+
 // import { connect } from '../utils/connect'
 
 class Home extends PureComponent {
@@ -24,7 +23,7 @@ class Home extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-    counter: state.counter,
+    counter: state.counterInfo.counter,
 })
 
 const mapDispatchToProps = (dispatch) => ({

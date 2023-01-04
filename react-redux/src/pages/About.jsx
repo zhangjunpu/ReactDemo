@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { subNumberAction } from '../store/actionCreater'
+import { subNumberAction } from '../store/counter'
 // import { connect } from '../utils/connect';
 
 function About(props) {
@@ -26,8 +26,8 @@ function About(props) {
 }
 
 const mapStateToProps = (state) => ({
-    counter: state.counter,
-    recommends: state.recommends,
+    counter: state.counterInfo.counter,
+    recommends: state.recommendInfo.recommends,
 })
 
 const mapDispatchToProps = (dispatch) => ({

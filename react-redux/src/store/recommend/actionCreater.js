@@ -1,20 +1,8 @@
 import axios from 'axios'
 
 import {
-    ADD_NUMBER,
-    SUB_NUMBER,
     RECOMMEND
 } from './constants'
-
-export const addNumberAction = (num) => ({
-    type: ADD_NUMBER,
-    num,
-})
-
-export const subNumberAction = (num) => ({
-    type: SUB_NUMBER,
-    num,
-})
 
 export const recommendAction = (recommends) => ({
     type: RECOMMEND,
