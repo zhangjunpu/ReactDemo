@@ -11,12 +11,23 @@ function About(props) {
             <h2>About：{props.counter}</h2>
             <button onClick={e => props.decrement()}>-1</button>
             <button onClick={e => props.subNumber(5)}>-5</button>
+
+            <h2>推荐列表</h2>
+            <ul>
+                {
+                    props.recommends.map((item, index) => (
+                        <li key={item.id}>{item.title}</li>
+                    ))
+                }
+            </ul>
+            <br />
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    counter: state.counter
+    counter: state.counter,
+    recommends: state.recommends,
 })
 
 const mapDispatchToProps = (dispatch) => ({
