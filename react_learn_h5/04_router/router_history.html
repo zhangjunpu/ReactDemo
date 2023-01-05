@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+    </div>
+
+    <div class="router_view"></div>
+
+    <script>
+        const routerView = document.getElementsByClassName("router_view")[0];
+
+        // 获取所有a元素，手动添加事件
+        const tags = document.getElementsByTagName("a");
+        for (let el of tags) {
+            el.addEventListener("click", (e) => {
+                e.preventDefault();
+                const href = el.getAttribute("href");
+                history.pushState({}, "", href);
+                changeUrl();
+            });
+        }
+
+        /**
+         * 点击返回按钮时刷新
+         */
+        window.addEventListener("popstate", () => {
+            changeUrl();
+        });
+
+        function changeUrl() {
+            switch (location.pathname) {
+                case "/home":
+                    routerView.innerHTML = "Home"
+                    break;
+                case "/about":
+                    routerView.innerHTML = "About"
+                    break;
+                default:
+                    routerView.innerHTML = ""
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
