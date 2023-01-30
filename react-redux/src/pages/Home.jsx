@@ -29,7 +29,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     increment: () => dispatch(addNumberAction(1)),
     addNumber: (num) => dispatch(addNumberAction(num)),
-    requestRecommend: () => dispatch(requestRecommendAction),
+    requestRecommend: () => dispatch(requestRecommendAction()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

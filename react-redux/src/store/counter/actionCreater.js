@@ -1,7 +1,4 @@
-import {
-    ADD_NUMBER,
-    SUB_NUMBER,
-} from './constants'
+import { ADD_NUMBER, SUB_NUMBER } from './constants'
 
 export const addNumberAction = (num) => ({
     type: ADD_NUMBER,

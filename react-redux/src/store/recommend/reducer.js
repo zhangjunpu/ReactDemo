@@ -1,6 +1,4 @@
-import {
-    RECOMMEND,
-} from "./constants";
+import { RECOMMEND } from "./constants";
 
 // 默认state
 const initialRecommendState = {
