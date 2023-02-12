@@ -1,0 +1,17 @@
+.wrap {
+  display: flex;
+}
+
+.wrap .left {
+  width: 300px;
+}
+
+.left .cover {
+  width: 100px;
+  height: 100px;
+}
+
+.left .img {
+  width: 100px;
+  height: 100px;
+}
