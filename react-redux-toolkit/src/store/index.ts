@@ -1,9 +1,11 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import player from "./player";
+import recommend from "./recommend";
 
 const store = configureStore({
   reducer: {
     player,
+    recommend,
   },
 });
 

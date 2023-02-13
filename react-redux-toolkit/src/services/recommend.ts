@@ -5,7 +5,7 @@ import request from "./http/request";
 /**
  * banner 数据
  */
-export function requestTopBanners(): Promise<ResBanner> {
+export function requestBanners(): Promise<ResBanner> {
   return request.get("/banner");
 }
 
